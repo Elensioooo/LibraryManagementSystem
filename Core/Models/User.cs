@@ -48,7 +48,7 @@ namespace Core.Models
 
         public Roles Role { get; set; }
 
-        public bool IsVerified { get; set; }
+        public bool IsVerified { get; set; } = false;
         public string VerificationCode
         {
             get
@@ -72,8 +72,9 @@ namespace Core.Models
         }
 
         //take care later
-        public string Password { get; set; }
         public decimal Fines { get; set; }
         public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }

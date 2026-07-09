@@ -14,6 +14,7 @@ namespace Application.Services
     {
         private readonly IUserManeger _fileManager;
 
+        
         public UserService(IUserManeger fileManager)
         {
             this._fileManager= fileManager;
