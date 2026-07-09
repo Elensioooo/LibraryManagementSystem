@@ -1,0 +1,4 @@
+﻿1001 | alex99 | alex@gmail.com | pass123 | client | 0.00
+1001 | ele99 | ele@gmail.com | pass123 | Admin | 0.00
+
+{"ID":1,"UserName":"Elene","Role":0,"IsVerified":false,"VerificationCode":null,"Password":"$2a$11$Iz0vH0LaWCjHgzQ3C.BHleXIgfk5p0WL7p6d5Wtcf1zSEDhzJLW0e","Fines":5,"Email":"elene@gmail.com"}
