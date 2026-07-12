@@ -9,12 +9,15 @@ namespace UI
     {
         static void Main(string[] args)
         {
-            IUserManeger repository = new UserRepository();
-            UserService userService = new UserService(repository);
 
-            userService.RegisterUser("Elene", "elene@gmail.com", "12357", Roles.Client, 5);
-            userService.RegisterUser("Nikolozi", "Niko@gmail.com", "12357", Roles.Client, 5);
-            Console.WriteLine("Hello, World!");
+            IUserManeger repository = new UserRepository();
+            EmailService emailService = new EmailService();
+            UserService userService = new UserService(repository, emailService);
+
+
+            userService.RegisterUser("Niko", "testmariami103@gmail.com", "password12357", Roles.Client);
+
+            Console.WriteLine("Run!");
             Console.ReadKey();
 
            

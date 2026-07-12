@@ -14,7 +14,6 @@ namespace Core.Models
         private string _userName;
         private string _verificationCode;
         private string _password;
-        private decimal _fines;
         private string _email;
         public int ID
         {
@@ -25,8 +24,8 @@ namespace Core.Models
             set
             {
                 
-                if (value <= 0)
-                    throw new ArgumentException("id cannot be less than 0");
+                if (value < 1000 || value > 9999)
+                    throw new ArgumentException("ID must be between 1000 and 9999");
                 _id = value;
             }
 
@@ -67,14 +66,39 @@ namespace Core.Models
                     if (!char.IsLetterOrDigit(c))
                         throw new ArgumentException("Invalid characters.");
                 }
+
                 _verificationCode = value;
             }
         }
 
-        //take care later
-        public decimal Fines { get; set; }
-        public string Email { get; set; }
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("Email cannot be empty.");
+                if (!value.Contains("@") || !value.Contains("."))
+                    throw new ArgumentException("Invalid email format.");
+                _email = value;
+            }
+        }
 
-        public string Password { get; set; }
+        public string Password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("Password cannot be empty.");
+                _password = value;
+            }
+        }
     }
 }

@@ -17,12 +17,7 @@ namespace Repository.Repositories
 
         public void AddUser(User user)
         {
-            //ეს იუზერ ობიექტი უნდა დავასერიალიზირო(ანუ სტრინგად გადავაქციო)
-            //დავამატო პროსტა ფაილში
-            //string line = JsonSerializer.Serialize(user);
-            //File.AppendAllLines(_filePath, new[] { line });
-
-            string line = $"{user.ID} | {user.UserName} | {user.Email} | {user.Password} | {user.Role} | {user.Fines}";
+            string line = JsonSerializer.Serialize(user);
             File.AppendAllLines(_filePath, new[] { line });
         }
 
@@ -44,23 +39,19 @@ namespace Repository.Repositories
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
 
-                string[] parts = line.Split('|');
+                //სტრინგი გადაყავს ობიექტში(line არის სტრინგი და გადაკონვერტირდება ობიექტად)
+                using JsonDocument document = JsonDocument.Parse(line);
+                //Role ფროფერთის ვწვდები ამით(int32  რო არ მიმეწერა დააბრუნებდა jsonს )
+                Roles role = (Roles)document.RootElement.GetProperty("Role").GetInt32();
 
-                int id = int.Parse(parts[0].Trim());
-                string userName = parts[1].Trim();
-                string email = parts[2].Trim();
-                string password = parts[3].Trim();
-                string role = parts[4].Trim();
-                decimal fines = decimal.Parse(parts[5].Trim());
-
-                if (role == "Client")
+                if (role == Roles.Client)
                 {
-                    Client newClient = new Client(id, userName, email, password, Roles.Client, fines);
+                    Client newClient = JsonSerializer.Deserialize<Client>(line);
                     users.Add(newClient);
                 }
-                else if (role == "Admin")
+                else if (role == Roles.Admin)
                 {
-                    Admin newAdmin = new Admin(id, userName, email, password, Roles.Admin, fines);
+                    Admin newAdmin = JsonSerializer.Deserialize<Admin>(line);
                     users.Add(newAdmin);
                 }
             }
@@ -81,6 +72,7 @@ namespace Repository.Repositories
             var user = users.FirstOrDefault(user => user.Email == email);
             return user;
         }
+
         public User GetUserByUserName(string userName)
         {
             List<User> users = GetAllUsers();
@@ -102,7 +94,7 @@ namespace Repository.Repositories
         public int GetUserId()
         {
             List<User> users = GetAllUsers();
-            int highestId = 0;
+            int highestId = 999;
             foreach(User user in users)
             {
                 if (user.ID > highestId)
@@ -117,7 +109,9 @@ namespace Repository.Repositories
             File.AppendAllLines(_filePath, users.Select(user => JsonSerializer.Serialize(user)));
         }
 
+        public  void VerifyUser(string email, string verificationCode)
+        {
 
-
+        }
     }
 }
