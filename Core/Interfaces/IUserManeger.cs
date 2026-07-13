@@ -19,6 +19,6 @@ namespace Core.Interfaces
         void DeleteUser(User user);
         void SaveChanges(List<User> users);
         int GetUserId();
-        void VerifyUser(string email, string verificationCode);
+        //void VerifyUser(string email, string verificationCode);
     }
 }

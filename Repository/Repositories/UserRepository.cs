@@ -23,7 +23,17 @@ namespace Repository.Repositories
 
         public void DeleteUser(User user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            List<User> users = GetAllUsers();
+            var foundUser = GetUserByEmail(user.Email);
+            if (foundUser == null)
+                throw new ArgumentException("there is not user with this email");
+
+            users.Remove(foundUser);
+            SaveChanges(users);
+
         }
 
         public List<User> GetAllUsers()
@@ -109,9 +119,9 @@ namespace Repository.Repositories
             File.AppendAllLines(_filePath, users.Select(user => JsonSerializer.Serialize(user)));
         }
 
-        public  void VerifyUser(string email, string verificationCode)
-        {
+        //public  void VerifyUser(string email, string verificationCode)
+        //{
 
-        }
+        //}
     }
 }

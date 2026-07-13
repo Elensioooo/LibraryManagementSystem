@@ -1,4 +1,5 @@
 ﻿using Core.Enums;
+using Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,9 @@ namespace Application.Interfaces
     public interface IUserService
     {
         public void RegisterUser(string userName, string email, string passwrod, Roles role);
-        //public void LoginUser(string email, string passwrod);
+       
         public void SendVerificationCode(string email, string verificationCode);
-
+        public bool VerifyUser(string email, string verificationCode);
+        public User Login(string email, string password);
     }
 }

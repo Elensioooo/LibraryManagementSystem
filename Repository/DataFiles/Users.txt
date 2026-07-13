@@ -1,3 +1,1 @@
-﻿{"ID":1000,"UserName":"Elene","Role":0,"IsVerified":true,"VerificationCode":"556792","Email":"elene@gmail.com","Password":"$2a$11$1ComJ47t09VBiD6Jykh8S.yGQVTABK9IVEJIpo8HVxUTB/VCeqZnG"}
-{"ID":1001,"UserName":"Niko","Role":0,"IsVerified":true,"VerificationCode":"328333","Email":"Niko@gmail.com","Password":"$2a$11$MLb/5EXe6ISOTjvJ6topG.ds4QpyW40EIgxP776ojqRJ76rv4GBam"}
-{"ID":1002,"UserName":"Niko","Role":0,"IsVerified":false,"VerificationCode":"185313","Email":"testmariami103@gmail.com","Password":"$2a$11$vmN9qq8CLOSyGRO2077MUuyymTu5afVDhg30aDqE1SEf4SQnc8Tkq"}
+﻿{"ID":1000,"UserName":"Niko","Role":0,"IsVerified":false,"VerificationCode":"664524","Email":"testmariami103@gmail.com","Password":"$2a$11$ZZQPdlDyc/zYdQmzqURWCeyISOW5XHD6h61LLOqnASQw465yO11nO"}

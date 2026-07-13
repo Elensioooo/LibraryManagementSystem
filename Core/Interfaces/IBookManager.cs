@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,17 @@ namespace Core.Interfaces
 {
     public interface IBookManager
     {
+        List<Book> GetAllBooks();
+
+        Book GetBookById(int id);
+        Book GetBookByTitle(string title);
+        List<Book> GetBookByAuthor(string author);
+        Book GetBookByIsbn(string isbn);
+
+        void AddBook(Book book);
+        void DeleteBook(Book book);
+        void SaveChanges(List<Book> books);
+        void UpdateBook(Book book);
+        int GetBookId();
     }
 }

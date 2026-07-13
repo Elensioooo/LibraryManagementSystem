@@ -55,5 +55,34 @@ namespace Application.Services
             _emailService.SendEmail(email, "Verification Code", verificationCode);
         }
 
+        public bool VerifyUser(string email, string verificationCode)
+        {
+            User user = _fileManager.GetUserByEmail(email);
+            if (user == null)
+                throw new ArgumentException("There is no user with this email");
+
+            if(user.VerificationCode == verificationCode)
+            {
+                user.IsVerified = true;
+                _fileManager.UpdateUser(user);
+                return true;
+            }
+            return false;
+        }
+
+        public User Login(string email, string password)
+        {
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("Email and password cannot be empty.");
+
+            User foundUser = _fileManager.GetUserByEmail(email);
+            if (foundUser == null)
+                throw new ArgumentException("User with this email cannot be found");
+
+            if (!BCrypt.Net.BCrypt.Verify(password, foundUser.Password))
+                throw new ArgumentException("Incorrect password");
+
+            return foundUser;
+        }
     }
 }
