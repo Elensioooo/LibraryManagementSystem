@@ -12,10 +12,14 @@ namespace Repository.Repositories
 {
     public class BookRepository : IBookManager
     {
+        //ეს მუშაობს ფაილზე, როგორ წაიკითხოს დატა
         private readonly string _filePath = "C:\\Users\\User\\LibraryManagementSystem\\Repository\\DataFiles\\Books.txt";
 
         public void AddBook(Book book)
         {
+           if (book == null)
+                throw new ArgumentNullException(nameof(book));
+
             string line = JsonSerializer.Serialize(book);
             File.AppendAllLines(_filePath, new[] { line });
         }
@@ -27,8 +31,6 @@ namespace Repository.Repositories
 
             List<Book> books = GetAllBooks();
             Book foundBook = GetBookById(book.Id);
-            if (foundBook == null)
-                throw new ArgumentException("there is no book with this id");
             books.Remove(foundBook);
             SaveChanges(books);
         }
@@ -47,17 +49,19 @@ namespace Repository.Repositories
                     continue;
 
                 Book book = JsonSerializer.Deserialize<Book>(line);
+                //აქ ეს ბუქი რაღაცნაირად ნალი რო იყოს მერე რა უდნა ქნდა მოიფიქრე
                 books.Add(book);
             }
             return books;
         }
 
-        public List<Book> GetBookByAuthor(string author)
+        public List<Book> GetBooksByAuthor(string author)
         {
             if (string.IsNullOrWhiteSpace(author))
                 throw new ArgumentException("Author cannot be empty");
             List<Book> books = GetAllBooks();
-            List<Book> foundBooks = books.Where(book => book.Author.ToUpper() == author.ToUpper()).ToList();
+            //ეხლა დააბრუნებს მაშინაც თუ სრულად არ დაწერს ავტორის სახლ გვრ
+            List<Book> foundBooks = books.Where(book => book.Author.Contains(author, StringComparison.OrdinalIgnoreCase)).ToList();
             if (foundBooks.Count == 0)
                 throw new ArgumentException("There are no books by this author");
             return foundBooks;
@@ -80,27 +84,17 @@ namespace Repository.Repositories
                 throw new ArgumentException("Isbn cannot be empty");
             List<Book> books = GetAllBooks();
             Book foundBook = books.FirstOrDefault(book => book.Isbn == isbn);
-            if (foundBook == null)
-                throw new ArgumentException("There is no book with this isbn");
+            //update-ში რო რამე უნდა შეცვალოს ისბნ ამიტო აქ ეს ნალჩექი არ მინდა წესით
+            //if (foundBook == null)
+            //    throw new ArgumentException("There is no book with this isbn");
             return foundBook;
         }
 
-        //?????აქ ყველა წიგნი უნდა დავაბრუნო, რომელიც ამ თაითლს მოიცავს?
-        //თუ პროსტა ამ თაითლიანი? აი მაგ თუ არის "ჰარი პოტერი და სიკვდილის საჩუქრები"
-        // ამან უნდა დააბრუნოს პირევლი ნაწილიც და მეორეც თუ მარტო იმენა სათაურიანი? 
-        public Book GetBookByTitle(string title)
-        {
-            if (string.IsNullOrWhiteSpace(title))
-                throw new ArgumentException("Title cannot be empty");
-            List<Book> books = GetAllBooks();
-            Book foundBook = books.FirstOrDefault(book => book.Title == title);
-            if (foundBook == null)
-                throw new ArgumentException("There is no book with this title");
-            return foundBook;
-        }
+    
 
         public int GetBookId()
         {
+            //ეს იმისთის რომ აიდები სწორად გავზარდო
             List<Book> books = GetAllBooks();
             int highestId = 0;
             foreach(Book book in books)
@@ -108,7 +102,19 @@ namespace Repository.Repositories
                 if (book.Id > highestId)
                     highestId = book.Id;
             }
-            return highestId + 1;
+           return highestId + 1;
+        }
+
+        public List<Book> GetBooksByTitle(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                throw new ArgumentException("The title cannot be empty");
+            List<Book> books = GetAllBooks();
+            List<Book> foundBooks = books.Where(book => book.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (foundBooks.Count == 0)
+                throw new ArgumentException("There is no book with this title");
+            return foundBooks;
+                
         }
 
         public void SaveChanges(List<Book> books)
@@ -120,14 +126,15 @@ namespace Repository.Repositories
 
         public void UpdateBook(Book book)
         {
+            if (book == null)
+                throw new ArgumentNullException(nameof(book));
+
             List<Book> books = GetAllBooks();
             int index = books.FindIndex(b => b.Id == book.Id);
-            if (index != -1)
-            {
-                books[index] = book;
-            }
+            if (index == -1)
+                throw new ArgumentException("There is no book with this ID.");
+            books[index] = book;
             SaveChanges(books);
-
         }
     }
 }

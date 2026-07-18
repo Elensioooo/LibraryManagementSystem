@@ -12,9 +12,11 @@ namespace Core.Interfaces
         List<Book> GetAllBooks();
 
         Book GetBookById(int id);
-        Book GetBookByTitle(string title);
-        List<Book> GetBookByAuthor(string author);
+        List<Book> GetBooksByTitle(string title);
+        List<Book> GetBooksByAuthor(string author);
         Book GetBookByIsbn(string isbn);
+
+
 
         void AddBook(Book book);
         void DeleteBook(Book book);
