@@ -1,1 +1,1 @@
-﻿{"ID":1000,"UserName":"Niko","Role":0,"IsVerified":false,"VerificationCode":"664524","Email":"testmariami103@gmail.com","Password":"$2a$11$ZZQPdlDyc/zYdQmzqURWCeyISOW5XHD6h61LLOqnASQw465yO11nO"}
+﻿{"ID":1000,"UserName":"elene","Role":0,"IsVerified":false,"VerificationCode":"797509","Email":"testmariami103@gmail.com","Password":"$2a$11$StAS2ZCMF37mBTvtBwZE1.k8hHxRaBYk2lVb/2hjFkpxkWwHm70Mq"}
