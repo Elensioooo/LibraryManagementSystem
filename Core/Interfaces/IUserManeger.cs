@@ -20,5 +20,6 @@ namespace Core.Interfaces
         void SaveChanges(List<User> users);
         int GetUserId();
         //void VerifyUser(string email, string verificationCode);
+
     }
 }

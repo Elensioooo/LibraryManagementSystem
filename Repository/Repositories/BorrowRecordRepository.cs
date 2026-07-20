@@ -89,10 +89,9 @@ namespace Repository.Repositories
         {
             if (userId <= 0)
                 throw new ArgumentException("id cannot be negative or 0");
+            
             List<BorrowRecord> borrowRecords = GetAllBorrowRecords();
             List<BorrowRecord> foundBorrowRecords = borrowRecords.Where(borrowRecord => borrowRecord.UserId == userId).ToList();
-            if (foundBorrowRecords.Count == 0)
-                throw new ArgumentException("There is no borrow record with this user id");
             return foundBorrowRecords;
         }
 

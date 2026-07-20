@@ -73,6 +73,8 @@ namespace Repository.Repositories
         {
             List<User> users = GetAllUsers();
             var user = users.FirstOrDefault(user => user.ID == id);
+            if (user == null)
+                throw new ArgumentException("There is no user with this id");
             return user;
         }
 
@@ -123,5 +125,7 @@ namespace Repository.Repositories
         //{
 
         //}
+
+
     }
 }
