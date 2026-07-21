@@ -27,5 +27,6 @@ namespace Application.Interfaces
         List<BorrowRecord> GetOverdueBorrowRecords();
         decimal CalculateFine(int borrowRecordId);
         void ApplyFine(int borrowRecordId);
+        List<BorrowRecord> OneDayLeftRecords();
     }
 }

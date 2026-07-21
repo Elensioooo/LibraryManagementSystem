@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Services;
 using Core.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace UI.Menus
     {
         private readonly IBookService _bookService;
         private readonly IBorrowService _borrowService;
-
+        private readonly INotificationService _notificationService;
         public AdminMenu(IBookService bookService, IBorrowService borrowService)
         {
             _bookService = bookService;
@@ -32,7 +33,9 @@ namespace UI.Menus
                 Console.WriteLine("6. Accept borrow request");
                 Console.WriteLine("7. Reject borrow request");
                 Console.WriteLine("8. View all borrow records");
-                Console.WriteLine("9. Logout");
+                Console.WriteLine("9. Send one day reminder notificaiton");
+                Console.WriteLine("10. Send overdue notificaiton");
+                Console.WriteLine("11. Logout");
                 Console.Write("Your Option: ");
 
                 try
@@ -205,6 +208,18 @@ namespace UI.Menus
                                 break;
                             }
                         case "9":
+                            {
+                                Console.WriteLine("Send one day reminder notifications:");
+                                _notificationService.SendOneDayLeftNotification();
+                                break;
+                            }
+                        case "10":
+                            {
+                                Console.WriteLine("Send Overdue Notificaitons");
+                                _notificationService.SendOverdueNotification();
+                                break;
+                            }
+                        case "11":
                             {
                                 Console.WriteLine("Log out");
                                 return;

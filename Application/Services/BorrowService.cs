@@ -16,6 +16,7 @@ namespace Application.Services
         private readonly IBookManager _bookManager;
         private readonly IUserManeger _userManager;
 
+        private const int BorrowPeriodDays = 30;
         public BorrowService(IBorrowManager borrowManager, IBookManager bookManager, IUserManeger userManager)
         {
             this._borrowManager = borrowManager;
@@ -80,7 +81,7 @@ namespace Application.Services
             List<BorrowRecord> borrowRecords = GetAllBorrowRecords();
             List<BorrowRecord> acceptedRecords = borrowRecords.Where(borrowRecord => borrowRecord.Status == BorrowStatus.Accepted).ToList();
 
-            List<BorrowRecord> overdueRecords = acceptedRecords.Where(record => record.BorrowDate.AddDays(30) < DateTime.Now).ToList();
+            List<BorrowRecord> overdueRecords = acceptedRecords.Where(record => record.BorrowDate.AddDays(BorrowPeriodDays) < DateTime.Now).ToList();
             foreach(BorrowRecord record in overdueRecords)
             {
                 record.Status = BorrowStatus.Overdue;
@@ -89,6 +90,7 @@ namespace Application.Services
         }
         public List<BorrowRecord> GetOverdueBorrowRecords()
         {
+            
             List<BorrowRecord> borrowRecords = GetAllBorrowRecords();
             List<BorrowRecord> overdueRecords = borrowRecords.Where(borrowRecord => borrowRecord.Status == BorrowStatus.Overdue).ToList();
             return overdueRecords;
@@ -219,6 +221,12 @@ namespace Application.Services
             _borrowManager.UpdateBorrowRecord(borrowRecord);
         }
 
-   
+
+        public List<BorrowRecord> OneDayLeftRecords()
+        {
+            List<BorrowRecord> acceptedRecords = GetAcceptedBorrowRecords();
+            List<BorrowRecord> OneDayLeftRecords = acceptedRecords.Where(record => record.BorrowDate.AddDays(BorrowPeriodDays) == DateTime.Now.Date.AddDays(1)).ToList();
+            return OneDayLeftRecords;
+        }
     }
 }
