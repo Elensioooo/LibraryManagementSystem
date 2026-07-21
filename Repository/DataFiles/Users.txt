@@ -1,1 +1,11 @@
-﻿{"ID":1000,"UserName":"elene","Role":0,"IsVerified":false,"VerificationCode":"797509","Email":"testmariami103@gmail.com","Password":"$2a$11$StAS2ZCMF37mBTvtBwZE1.k8hHxRaBYk2lVb/2hjFkpxkWwHm70Mq"}
+{"ID":1000,"UserName":"elene","Role":0,"IsVerified":false,"VerificationCode":"797509","Email":"testmariami103@gmail.com","Password":"$2a$11$StAS2ZCMF37mBTvtBwZE1.k8hHxRaBYk2lVb/2hjFkpxkWwHm70Mq"}
+{"ID":1001,"UserName":"Salome","Role":0,"IsVerified":true,"VerificationCode":"188877","Email":"Salome@gmail.com","Password":"$2a$11$2cDG43sTrzwoMDPU1sfZb.4ydNR.AfEj/RlJgbkfrLa6aZzuvUo5K"}
+{"ID":1002,"UserName":"testAdmin","Role":1,"IsVerified":true,"VerificationCode":"613343","Email":"testAdmin@gmail.com","Password":"$2a$11$Rbpl9yK8mKo8nWIIom1kcevOdizCaADB1yVsqmz5YljamRsA5sEje"}
+{"ID":1003,"UserName":"Mariami","Role":0,"IsVerified":true,"VerificationCode":"199655","Email":"Mariami@gmail.com","Password":"$2a$11$50zHez434OuI7cnOwOL7/./176s8FYyEgj3nKhxLMXsK0X0uL0b1u"}
+{"ID":1004,"UserName":"Salome","Role":0,"IsVerified":true,"VerificationCode":"501249","Email":"Saliko@gmail.com","Password":"$2a$11$Yl10HBrRiAks.A674gCnb.qCn.OVf6JWHhhj1A5BLhWVz5RaIXd9i"}
+{"ID":1005,"UserName":"Elene","Role":0,"IsVerified":true,"VerificationCode":"582700","Email":"Elensio@gmail.com","Password":"$2a$11$VidjAorbAhF7ckvl4sWOZOotnHm2a8pyFlII7rQUunjl6ECErwTq."}
+{"ID":1007,"UserName":"Morgo","Role":0,"IsVerified":true,"VerificationCode":"333005","Email":"Morgo@gmail.com","Password":"$2a$11$A70MaYmJfYeC21yrurLFBOM6ogdqzitXKw6y0W9pG4kjremLN0oP2"}
+{"ID":1008,"UserName":"John Doe","Role":0,"IsVerified":true,"VerificationCode":"779920","Email":"Doe@gmail.com","Password":"$2a$11$fxwb14QXnJIT1.CcYkS/TuLU.vwjMq3nYd4UpFayUAbH2qD9bX47q"}
+{"ID":1009,"UserName":"mariami","Role":0,"IsVerified":true,"VerificationCode":"317320","Email":"mariko@gmail.com","Password":"$2a$11$gxSgv5KKldWuIB1D2IkjUeHjH2Pxfv6nUF4Y9vQV6u3q.GLvTZzbG"}
+{"ID":1010,"UserName":"Admin2","Role":1,"IsVerified":false,"VerificationCode":"598018","Email":"admin2@gmail.com","Password":"$2a$11$tQQm2WDLem4mxv/y.ejPQOAdeFPGIFu3tsX7umi1V3RbFskkWZocy"}
+{"ID":1011,"UserName":"admin3@gmail.com","Role":1,"IsVerified":true,"VerificationCode":"620027","Email":"admin3@gmail.com","Password":"$2a$11$koULkC9rVjyoOpA9b/BYJefPE9g2GGx1qh6rhGOs/j8iGW/A6d8.a"}

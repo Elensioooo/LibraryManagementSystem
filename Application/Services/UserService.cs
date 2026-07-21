@@ -39,13 +39,16 @@ namespace Application.Services
                 //თავიდან როცა დრეგისტრირდება fines იქნება 0
                 Client newClient = new Client(id, userName, email, BCrypt.Net.BCrypt.HashPassword(passwrod),0, verificationCode, false);
                 _fileManager.AddUser(newClient);
-                SendVerificationCode(email, verificationCode);
+                //SendVerificationCode(email, verificationCode);
+                Console.WriteLine($"Verification code: {verificationCode}");
             }
             
             if(role == Roles.Admin)
             {
                 Admin newAdmin = new Admin(id, userName, email, BCrypt.Net.BCrypt.HashPassword(passwrod), verificationCode, false);
                 _fileManager.AddUser(newAdmin);
+                //SendVerificationCode(email, verificationCode);
+                Console.WriteLine($"Verification code: {verificationCode}");
             }
         }
 

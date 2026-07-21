@@ -14,13 +14,13 @@ namespace Core.Models
         private string _author;
         private int _quantity;
 
-        public Book(string isbn, string title, string author, int quantity, int id)
+        public Book(string isbn, string title, string author, int quantity)
         {
             this.Isbn = isbn;
             this.Title = title;
             this.Author = author;
             this.Quantity = quantity;
-            this.Id = id;
+            //this.Id = id;
         }
 
         public string Isbn
@@ -91,6 +91,11 @@ namespace Core.Models
                     throw new ArithmeticException("Id cannot be negative");
                 _id = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"Id - {Id}, ISBN - {Isbn}, Title - {Title}, Author - {Author}, Quantity - {Quantity}";
         }
     }
 }

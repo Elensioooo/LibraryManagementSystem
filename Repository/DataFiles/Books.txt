@@ -1,1 +1,11 @@
-﻿
+{"Isbn":"123456789","Title":"Hurry Potter and the Deathly Hallows(part 1)","Author":"J.K. Rowling","Quantity":10,"Id":1}
+{"Isbn":"111111111","Title":"The Lord of the Rings: The Fellowship of the Ring","Author":"J.R.R. Tolkien","Quantity":9,"Id":2}
+{"Isbn":"222222222","Title":"Brave New World","Author":"Aldous Huxley","Quantity":5,"Id":3}
+{"Isbn":"333333333","Title":"Wuthering Heights","Author":"Emily Bront\u00EB","Quantity":3,"Id":4}
+{"Isbn":"9780553386790","Title":"A Game of Thrones","Author":"George R.R. Martin","Quantity":7,"Id":5}
+{"Isbn":"9780062315007","Title":"The Alchemist","Author":"Paulo Coelho","Quantity":10,"Id":6}
+{"Isbn":"9780385754729","Title":"The Book Thief","Author":"Markus Zusak","Quantity":5,"Id":7}
+{"Isbn":"9780141439471","Title":"Dracula","Author":"Bram Stoker","Quantity":16,"Id":8}
+{"Isbn":"9780060935467","Title":"One Hundred Years of Solitude","Author":"Gabriel Garc\u00EDa M\u00E1rquez","Quantity":3,"Id":9}
+{"Isbn":"9780142437247","Title":"The Adventures of Huckleberry Finn","Author":"Mark Twain","Quantity":5,"Id":10}
+{"Isbn":"111222333444","Title":"The Picture of Dorian Gray","Author":"changed author","Quantity":8,"Id":11}

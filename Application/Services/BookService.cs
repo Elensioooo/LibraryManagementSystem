@@ -28,6 +28,7 @@ namespace Application.Services
             if (foundBooks != null)
                 throw new ArgumentException("The library has book with this ISBN");
             book.Id = _bookManager.GetBookId();
+            book.Id = _bookManager.GetBookId();
             _bookManager.AddBook(book);
         }
 

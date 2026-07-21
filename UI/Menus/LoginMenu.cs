@@ -21,14 +21,12 @@ namespace UI.Menus
         {
             try
             {
-                Console.WriteLine("Login");
-
                 Console.Write("Please Enter Your email: ");
                 string email = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(email) || !email.Contains("@") || !email.Contains("."))
                     throw new ArgumentException("Invalid email");
 
-                Console.WriteLine("Please Enter you Passowrd");
+                Console.Write("Please Enter you Passowrd: ");
                 string password = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(password))
                     throw new ArgumentException("password cannot be emtpy");

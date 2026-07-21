@@ -64,5 +64,9 @@ namespace Core.Models
         public DateTime ReturnedDate { get; set; }
         public BorrowStatus Status { get; set; }
 
+        public override string ToString()
+        {
+            return $"BorrowId - {BorrowId}, UserId - {UserId}, BookId - {BookId}, RequestDate - {RequestDate}, BorrowDate - {BorrowDate}, ReturnedDate - {ReturnedDate}, Status - {Status}";
+        }
     }
 }

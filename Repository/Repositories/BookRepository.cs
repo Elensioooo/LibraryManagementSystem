@@ -84,13 +84,9 @@ namespace Repository.Repositories
                 throw new ArgumentException("Isbn cannot be empty");
             List<Book> books = GetAllBooks();
             Book foundBook = books.FirstOrDefault(book => book.Isbn == isbn);
-            //update-ში რო რამე უნდა შეცვალოს ისბნ ამიტო აქ ეს ნალჩექი არ მინდა წესით
-            //if (foundBook == null)
-            //    throw new ArgumentException("There is no book with this isbn");
+           
             return foundBook;
         }
-
-    
 
         public int GetBookId()
         {

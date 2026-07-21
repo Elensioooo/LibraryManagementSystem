@@ -1,1 +1,3 @@
-﻿
+{"BorrowId":1,"UserId":1008,"BookId":8,"RequestDate":"2026-07-21T12:57:24.4620069+07:00","BorrowDate":"2026-07-21T13:16:24.5574817+07:00","ReturnedDate":"0001-01-01T00:00:00","Status":1}
+{"BorrowId":2,"UserId":1009,"BookId":9,"RequestDate":"2026-07-21T13:04:40.776963+07:00","BorrowDate":"2026-07-21T13:19:09.2550672+07:00","ReturnedDate":"2026-07-21T13:19:42.3735204+07:00","Status":3}
+{"BorrowId":3,"UserId":1009,"BookId":5,"RequestDate":"2026-07-21T13:04:51.9859664+07:00","BorrowDate":"0001-01-01T00:00:00","ReturnedDate":"0001-01-01T00:00:00","Status":2}

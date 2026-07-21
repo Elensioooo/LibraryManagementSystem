@@ -24,6 +24,7 @@ namespace UI.Menus
                 Console.WriteLine("Select Your role: ");
                 Console.WriteLine("Client - Press 1");
                 Console.WriteLine("Admin - Press 2");
+                Console.Write("Your option: ");
                 if (!byte.TryParse(Console.ReadLine(), out byte roleChoice))
                     throw new ArgumentException("Please enter a valid number.");
 
